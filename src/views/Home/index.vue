@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import { getMenu } from "@/api";
 export default {
     name: 'Home',
     components: {
@@ -53,6 +54,9 @@ export default {
     },
     mounted() {
         this.lastTime = new Date().toLocaleString()
+        getMenu().then(res=>{
+            console.log(res);
+        })
     },
     data() {
         return {
