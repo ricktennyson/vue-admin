@@ -1,21 +1,14 @@
 <template>
-    <el-container style="height:100%">
-        <el-aside width="auto">
-            <Common-Aside></Common-Aside>
-        </el-aside>
-        <el-container>
-            <el-header>Header</el-header>
-            <el-main>Main</el-main>
-        </el-container>
-    </el-container>
+    <div>
+1321
+    </div>
 </template>
 
 <script>
-import CommonAside from '@/components/commonAside'
 export default {
-    name: 'Home',
+    name:'Home',
     components: {
-        CommonAside
+
     },
     props: [],
     created() {
@@ -41,12 +34,6 @@ export default {
 };
 </script>
 
-<style scoped lang="less">
+<style scoped lang="scss">
 
-.el-header{
-    background-color: #333;
-}
-.el-main{
-    padding-top: 0;
-}
 </style>

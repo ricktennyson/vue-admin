@@ -14,12 +14,13 @@ export default {
 </script>
 
 <style >
-/** {
+*,
+html,
+body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-size: 14px;
-}*/
+}
 
 #app {
   height: 100vh;

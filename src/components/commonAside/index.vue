@@ -1,12 +1,12 @@
 <template>
-    <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
-        :collapse="isCollapse">
+    <el-menu default-active="/" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
+        :collapse="isCollapse" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
         <h3>Rzoad-Admin</h3>
-        <el-menu-item :index="item.path" v-for="item in noChildren" :key="item.path">
+        <el-menu-item @click="menuRoute(item)" :index="item.path + ''" v-for="item in noChildren" :key="item.path">
             <i :class="'el-icon-' + item.icon"></i>
             <span slot="title">{{ item.label }}</span>
         </el-menu-item>
-        <el-submenu :index="item.path" v-for="item in hasChildren" :key="item.path">
+        <el-submenu :index="item.path + ''" v-for="item in hasChildren" :key="item.path">
             <template slot="title">
                 <i :class="'el-icon-' + item.icon"></i>
                 <span slot="title">{{ item.label }}</span>
@@ -37,21 +37,21 @@ export default {
             menu: [
                 {
                     path: '/',
-                    name: 'home ',
+                    name: 'Home',
                     label: '首页',
                     icon: 's-home ',
                     url: 'Home/Home '
                 },
                 {
                     path: ' /mall',
-                    name: 'mall',
+                    name: 'Mall',
                     label: '商品管理',
                     icon: 'video-play ',
                     url: 'MallManage/MallManage'
                 },
                 {
                     path: '/user',
-                    name: 'user',
+                    name: 'User',
                     label: '用户管理',
                     icon: 'user ',
                     url: 'UserManage/UserManage'
@@ -59,10 +59,10 @@ export default {
                 {
                     label: '其他', icon: 'location', children: [
                         {
-                            path: '/ page1', name: 'page1', label: '页面1', icon: 'setting ', url: "other /PageOne"
+                            path: '/ page1', name: 'Page1', label: '页面1', icon: 'setting ', url: "other /PageOne"
                         },
                         {
-                            path: '/page2 ', name: 'page2', label: '页面2', icon: 'setting ', url: 'other/ PageTwo '
+                            path: '/page2 ', name: 'Page2', label: '页面2', icon: 'setting ', url: 'other/ PageTwo '
                         }
                     ]
                 }
@@ -78,6 +78,11 @@ export default {
         },
         handleClose(key, keyPath) {
             console.log(key, keyPath);
+        },
+        menuRoute(item) {
+            this.$router.push({
+                name: item.name
+            })
         }
     },
     computed: {
@@ -95,5 +100,16 @@ export default {
 .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 200px;
     min-height: 400px;
+}
+
+.el-menu {
+    height: 100%;
+    border: none;
+
+    h3 {
+        color: whitesmoke;
+        text-align: center;
+        line-height: 48px;
+    }
 }
 </style>
