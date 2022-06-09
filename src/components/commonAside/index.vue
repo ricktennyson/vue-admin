@@ -1,7 +1,7 @@
 <template>
     <el-menu default-active="/" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
         :collapse="isCollapse" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
-        <h3>Rzoad-Admin</h3>
+        <h3>{{ isCollapse ? 'Admin' : 'Rzoad-Admin' }}</h3>
         <el-menu-item @click="menuRoute(item)" :index="item.path + ''" v-for="item in noChildren" :key="item.path">
             <i :class="'el-icon-' + item.icon"></i>
             <span slot="title">{{ item.label }}</span>
@@ -29,11 +29,9 @@ export default {
 
     },
     mounted() {
-
     },
     data() {
         return {
-            isCollapse: false,
             menu: [
                 {
                     path: '/',
@@ -91,6 +89,9 @@ export default {
         },
         hasChildren() {
             return this.menu.filter(e => e.children)
+        },
+        isCollapse() {
+            return this.$store.state.Tab.isCollapse
         }
     },
 };

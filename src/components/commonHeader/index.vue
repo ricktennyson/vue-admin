@@ -1,7 +1,7 @@
 <template>
     <header>
         <div class="l-content">
-            <el-button plain icon="el-icon-menu" size="mini"></el-button>
+            <el-button @click="handleAside" plain icon="el-icon-menu" size="mini"></el-button>
             <h3 style="color:#fff">首页</h3>
         </div>
         <div class="r-content">
@@ -40,7 +40,9 @@ export default {
 
     },
     methods: {
-
+        handleAside() {
+            this.$store.commit('setCollapseValue')
+        }
     },
     computed: {
 
@@ -48,5 +50,28 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="less">
+header {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.l-content {
+    display: flex;
+    align-items: center;
+
+    .el-button {
+        margin-right: 1.25rem;
+    }
+}
+
+.r-content {
+    .user {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+    }
+}
 </style>
